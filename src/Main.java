@@ -6,7 +6,7 @@ import service.UserService;
 public class Main {
     public static void main(String[] args) {
 
-        try {
+
             User user = new User(1, "Kumar", "Aliev",Gender.MALE);
             User user1 = new User(2, "Azalya", "Alieva", Gender.FEMALE);
             User user2 = new User(3, "Anas","Aliev", Gender.MALE);
@@ -18,13 +18,18 @@ public class Main {
             userService.findById(3);
             userService.getAllUsers();
 
-            System.out.println(userService.findById(3));
-            userService.getAllUsers();
+           try {
+               userService.findById(3);
+           }catch (Exception e){
+               System.out.println(e.getMessage());
+        }
+        try {
+            userService.deleteUserById(5);
 
-        }catch (RuntimeException runtimeException){
-            System.out.println(runtimeException.getMessage());
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
 
 
-    }
+        }
 }
